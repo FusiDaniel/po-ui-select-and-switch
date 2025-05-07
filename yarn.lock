@@ -152,6 +152,15 @@
   optionalDependencies:
     lmdb "3.1.5"
 
+"@angular/cdk@~19.0.3":
+  version "19.0.5"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-19.0.5.tgz#30ff622f0a0f4bb7ecb467d7261db58c6eb2cb3f"
+  integrity sha512-+D++QUrJlDuwk5RhQBDTejQseb0ZP6c6S4r8wBBab7UPtrwigySudSb0PxhiAzp2YHr5Ch3klhkTf/NSWeUXUQ==
+  dependencies:
+    tslib "^2.3.0"
+  optionalDependencies:
+    parse5 "^7.1.2"
+
 "@angular/cli@~19.0.5":
   version "19.0.7"
   resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-19.0.7.tgz#d06c84ed92327a2e6083df6bdd105566b4f32e2e"
@@ -1945,6 +1954,28 @@
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
+
+"@po-ui/ng-components@19.10.0":
+  version "19.10.0"
+  resolved "https://registry.yarnpkg.com/@po-ui/ng-components/-/ng-components-19.10.0.tgz#800f70463a384ce5d9da69f62e8877eada7ccd50"
+  integrity sha512-+xglUE64D23Njshxt7gVyO4x2U0zHt2j2z7HHzWxip6IIQSlnTJ8tiNKIwhzgAcQDUbN51IdsrKLgvd5rgQJ3w==
+  dependencies:
+    "@angular/cdk" "~19.0.3"
+    "@po-ui/ng-schematics" "19.10.0"
+    "@po-ui/style" "19.10.0"
+    tslib "^2.6.2"
+
+"@po-ui/ng-schematics@19.10.0":
+  version "19.10.0"
+  resolved "https://registry.yarnpkg.com/@po-ui/ng-schematics/-/ng-schematics-19.10.0.tgz#b7cd316b8d3be21e180a57d40c74094019180327"
+  integrity sha512-8AK0iyQvVDsnAHEWgkZdZNXlt6QNb90Np0ht9FmF/GyuzzsHswWJm0CdZI+9N6GopHiSd7AaQsHLsfEoz7kUhQ==
+  dependencies:
+    jsonc-parser "^3.2.0"
+
+"@po-ui/style@19.10.0":
+  version "19.10.0"
+  resolved "https://registry.yarnpkg.com/@po-ui/style/-/style-19.10.0.tgz#02cb37cc2cb040b569889e877e591df64716e897"
+  integrity sha512-CEmaWIKk75y18FUVZ/HbfVYpcsRLNVAgo7Sz6oPs5/f0KOU3s2vUgqajLb1H5KrAbBOOXMyENRHHe7hnlTfqdg==
 
 "@rollup/rollup-android-arm-eabi@4.26.0":
   version "4.26.0"
@@ -4545,7 +4576,7 @@ json5@^2.1.2, json5@^2.2.3:
   resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.3.tgz#78cd6f1a19bdc12b73db5ad0c61efd66c1e29283"
   integrity sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==
 
-jsonc-parser@3.3.1:
+jsonc-parser@3.3.1, jsonc-parser@^3.2.0:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/jsonc-parser/-/jsonc-parser-3.3.1.tgz#f2a524b4f7fd11e3d791e559977ad60b98b798b4"
   integrity sha512-HUgH65KyejrUFPvHFPbqOY0rsFip3Bo5wb4ngvdi1EpCYWUQDC5V+Y7mZws+DLkr4M//zQJoanu1SP+87Dv1oQ==
@@ -5447,7 +5478,7 @@ parse5-sax-parser@^7.0.0:
   dependencies:
     parse5 "^7.0.0"
 
-parse5@^7.0.0:
+parse5@^7.0.0, parse5@^7.1.2:
   version "7.3.0"
   resolved "https://registry.yarnpkg.com/parse5/-/parse5-7.3.0.tgz#d7e224fa72399c7a175099f45fc2ad024b05ec05"
   integrity sha512-IInvU7fabl34qmi9gY8XOVxhYyMyuH2xUNpb2q8/Y+7552KlejkRvqvD19nMoUW/uQGGbqNpA6Tufu5FL5BZgw==
@@ -6586,7 +6617,7 @@ tree-kill@1.2.2:
   resolved "https://registry.yarnpkg.com/tree-kill/-/tree-kill-1.2.2.tgz#4ca09a9092c88b73a7cdc5e8a01b507b0790a0cc"
   integrity sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==
 
-tslib@2.8.1, tslib@^2.0.0, tslib@^2.1.0, tslib@^2.3.0:
+tslib@2.8.1, tslib@^2.0.0, tslib@^2.1.0, tslib@^2.3.0, tslib@^2.6.2:
   version "2.8.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.8.1.tgz#612efe4ed235d567e8aba5f2a5fab70280ade83f"
   integrity sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==
