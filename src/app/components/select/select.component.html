@@ -1,0 +1,23 @@
+<select
+  [disabled]="disabled"
+  class="select"
+  [(ngModel)]="selectedValue"
+  (ngModelChange)="selectedValueChange.emit($event)"
+  [ngClass]="selectedValue && 'select-selected'"
+>
+  <option
+    class="select-option select-option-placeholder"
+    disabled
+    [ngValue]="null"
+    [selected]="!selectedValue"
+  >
+    {{ placeholder }}
+  </option>
+  <option
+    class="select-option"
+    *ngFor="let option of options"
+    [ngValue]="option.value"
+  >
+    {{ option.label }}
+  </option>
+</select>
