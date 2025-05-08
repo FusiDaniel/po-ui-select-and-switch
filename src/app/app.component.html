@@ -1,18 +1,16 @@
 <po-page-default p-title="PO UI">
   <div class="select-wrapper">
     <app-select
+      [(ngModel)]="selectedOption"
       [options]="options"
-      [selectedValue]="selectedOption"
-      (selectedValueChange)="onOptionSelected($event)"
       [placeholder]="'Choose an option'"
     >
     </app-select>
   </div>
   <div class="select-wrapper">
     <app-select
+      [(ngModel)]="selectedOption"
       [options]="options"
-      [selectedValue]="selectedOption"
-      (selectedValueChange)="onOptionSelected($event)"
       [placeholder]="'Disabled Select'"
       [disabled]="true"
     >
@@ -20,13 +18,15 @@
   </div>
   <div class="select-wrapper">
     <app-select
+      [(ngModel)]="selectedOption"
       [options]="options"
-      [selectedValue]="selectedOption"
-      (selectedValueChange)="onOptionSelected($event)"
       [placeholder]="'Error Select'"
       [error]="true"
     >
     </app-select>
+  </div>
+  <div class="select-wrapper">
+    <app-simple-form />
   </div>
   <!-- <app-switch /> -->
 </po-page-default>

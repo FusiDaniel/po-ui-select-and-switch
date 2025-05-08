@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import {
   PoMenuModule,
@@ -7,6 +8,7 @@ import {
   PoToolbarModule,
 } from '@po-ui/ng-components';
 import { SelectComponent, Option } from './components/select/select.component';
+import { SimpleFormComponent } from "./components/simple-form/simple-form.component";
 
 @Component({
   selector: 'app-root',
@@ -15,8 +17,10 @@ import { SelectComponent, Option } from './components/select/select.component';
     PoToolbarModule,
     PoMenuModule,
     PoPageModule,
-    SelectComponent
-  ],
+    SelectComponent,
+    FormsModule,
+    SimpleFormComponent
+],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })

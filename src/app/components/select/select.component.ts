@@ -1,8 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, forwardRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { joinClasses } from '../../utils/joinClasses';
 import { PoComponentsModule } from '@po-ui/ng-components';
+import {
+  ControlValueAccessor,
+  NG_VALUE_ACCESSOR
+} from '@angular/forms';
 
 export type Option = {
   value: string;
@@ -12,35 +16,55 @@ export type Option = {
 @Component({
   selector: 'app-select',
   standalone: true,
-  imports: [FormsModule, CommonModule, PoComponentsModule ],
+  imports: [FormsModule, CommonModule, PoComponentsModule],
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.css'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => SelectComponent),
+      multi: true
+    }
+  ]
 })
-export class SelectComponent implements OnInit {
+export class SelectComponent implements ControlValueAccessor {
   @Input() options: Option[] = [];
-  @Input() selectedValue: string | null = null;
   @Input() placeholder?: string;
-  @Input() disabled = false;
+  @Input() isDisabled = false;
   @Input() error = false;
-  @Output() selectedValueChange = new EventEmitter<string | null>();
+
+  value: string | null = null;
+
+  onChange = (_: any) => {};
+  onTouched = () => {};
 
   get selectClassNames(): string {
-    return joinClasses([!!this.selectedValue, 'select-selected'], [this.error, 'select-error']);
+    return joinClasses([!!this.value, 'select-selected'], [this.error, 'select-error']);
   }
 
   get iconClassNames(): string {
-    return joinClasses([this.disabled, 'select-icon-disabled'], [this.error, 'select-icon-error']);
+    return joinClasses([this.isDisabled, 'select-icon-disabled'], [this.error, 'select-icon-error']);
   }
 
-  ngOnInit(): void {
-    if (this.selectedValue === null && this.options.length > 0) {
-      this.selectedValueChange.emit(null);
-    }
+  writeValue(value: string | null): void {
+    this.value = value;
   }
 
-  onChange(event: Event): void {
-    const selectedValue = (event.target as HTMLSelectElement).value;
-    this.selectedValue = selectedValue;
-    this.selectedValueChange.emit(selectedValue);
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+  
+  setDisabledState?(isDisabled: boolean): void {
+    this.isDisabled = isDisabled;
+  }
+
+  onValueChange(value: string): void {
+    this.value = value;
+    this.onChange(value);
+    this.onTouched();
   }
 }

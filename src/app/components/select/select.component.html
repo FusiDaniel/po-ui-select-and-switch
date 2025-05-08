@@ -1,23 +1,24 @@
-<div class="select-wrapper">  <!-- Add a wrapper element -->
+<div class="select-wrapper">
   <select
-    [disabled]="disabled"
-    [(ngModel)]="selectedValue"
-    (ngModelChange)="selectedValueChange.emit($event)"
+    [ngModel]="value"
+    (ngModelChange)="onValueChange($event)"
+    [disabled]="isDisabled"
+    (blur)="onTouched()"
     class="select select-hide-default-caret"
     [ngClass]="selectClassNames"
   >
     <option
       class="select-option select-option-placeholder"
-      [disabled]="true"
-      [ngValue]="null"
-      [selected]="!selectedValue"
+      disabled
+      [value]="null"
+      *ngIf="placeholder"
     >
       {{ placeholder }}
     </option>
     <option
       class="select-option"
       *ngFor="let option of options"
-      [ngValue]="option.value"
+      [value]="option.value"
     >
       {{ option.label }}
     </option>

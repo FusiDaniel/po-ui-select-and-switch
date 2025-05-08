@@ -1,0 +1,19 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="fruit">Select a fruit:</label>
+    <app-select 
+      [placeholder]="'Choose a fruit'"
+      [options]="options" 
+      formControlName="fruit"
+      [error]="!!myForm.get('fruit')?.invalid && !!(myForm.get('fruit')?.dirty || myForm.get('fruit')?.touched)"
+    ></app-select>
+    <div *ngIf="
+        !!myForm.get('fruit')?.invalid && !!(myForm.get('fruit')?.dirty || myForm.get('fruit')?.touched)
+      ">
+      <p class="error" *ngIf="myForm.get('fruit')?.errors?.['required']">
+        Fruit is required.
+      </p>
+    </div>
+  </div>
+  <button type="submit" [disabled]="myForm.invalid">Submit</button>
+</form>
