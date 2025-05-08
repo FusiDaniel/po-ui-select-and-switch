@@ -19,8 +19,17 @@
   --background-disabled: var(--color-neutral-light-20);
 
   --color-error: var(--color-feedback-negative-base);
-  --background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 256 256' fill='%234a5c60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z'%3E%3C/path%3E%3C/svg%3E");
 }
+
+/* Wrapper Style */
+
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Select Style */
 
 .select {
   font-family: var(--font-family);
@@ -37,20 +46,6 @@
   min-height: 2.75rem; 
 
   width: 100%;
-  
-  background-image: var(--background-image);
-  background-repeat: no-repeat;
-  background-position: right var(--padding-horizontal, .5rem) center;
-  background-size: 24px;
-}
-
-.select-hide-default-caret {
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-}
-.select-hide-default-caret::-ms-expand {
-  display: none;
 }
 
 .select:hover {
@@ -82,33 +77,7 @@
   color: var(--text-color);
 }
 
-.select-icon {
-  color: var(--color);
-}
-
-/* AQUI PRECISA SER UM HOVER WITHIN OU ALGO ASSIM */
-.select-icon:hover {
-  color: var(--color-hover);
-}
-
-/* AQUI PRECISA SER UM FOCUS WITHIN OU ALGO ASSIM */
-.select-icon:focus {
-  color: var(--color-focused);
-}
-
-/* AQUI PRECISA SER UM DISABLED WITHIN OU ALGO ASSIM */
-.select-icon:disabled {
-  color: var(--color-disabled);
-}
-
-/* AQUI PRECISA SER UM ERROR WITHIN OU ALGO ASSIM */
-.select-icon-error {
-  color: var(--color-error);
-}
-
-.select-option {
-  color: var(--text-color);
-}
+/* Option Style */
 
 .select-option {
   color: var(--text-color);
@@ -117,3 +86,43 @@
 .select-option-placeholder {
   color: var(--color-disabled);
 }
+
+/* Icon Style */
+
+.select-hide-default-caret {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+.select-hide-default-caret::-ms-expand {
+  display: none;
+}
+
+.select-icon::before {
+  position: absolute;
+  top: 50%;
+  right: var(--padding-horizontal);
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  color: var(--color);
+  font-size: 24px
+}
+
+.select-wrapper:hover > .select-icon:not(.select-icon-disabled)::before {
+  color: var(--color-hover);
+}
+
+.select-wrapper:focus-within > .select-icon:not(.select-icon-disabled)::before {
+  color: var(--color-focused);
+}
+
+.select-icon-disabled::before {
+  color: var(--color-disabled);
+}
+
+.select-icon-error::before {
+  color: var(--color-error);
+}
+

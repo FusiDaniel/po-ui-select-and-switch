@@ -1,23 +1,30 @@
-<select
-  [disabled]="disabled"
-  class="select select-hide-default-caret"
-  [(ngModel)]="selectedValue"
-  (ngModelChange)="selectedValueChange.emit($event)"
-  [ngClass]="selectClassNames"
->
-  <option
-    class="select-option select-option-placeholder"
-    disabled
-    [ngValue]="null"
-    [selected]="!selectedValue"
+<div class="select-wrapper">  <!-- Add a wrapper element -->
+  <select
+    [disabled]="disabled"
+    [(ngModel)]="selectedValue"
+    (ngModelChange)="selectedValueChange.emit($event)"
+    class="select select-hide-default-caret"
+    [ngClass]="selectClassNames"
   >
-    {{ placeholder }}
-  </option>
-  <option
-    class="select-option"
-    *ngFor="let option of options"
-    [ngValue]="option.value"
+    <option
+      class="select-option select-option-placeholder"
+      [disabled]="true"
+      [ngValue]="null"
+      [selected]="!selectedValue"
+    >
+      {{ placeholder }}
+    </option>
+    <option
+      class="select-option"
+      *ngFor="let option of options"
+      [ngValue]="option.value"
+    >
+      {{ option.label }}
+    </option>
+  </select>
+  <i 
+    class="an an-caret-down select-icon"
+    [ngClass]="iconClassNames"
   >
-    {{ option.label }}
-  </option>
-</select>
+  </i>
+</div>

@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { joinClasses } from '../../utils/joinClasses';
+import { PoComponentsModule } from '@po-ui/ng-components';
 
 export type Option = {
   value: string;
@@ -11,7 +12,7 @@ export type Option = {
 @Component({
   selector: 'app-select',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, PoComponentsModule ],
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.css'],
 })
@@ -25,6 +26,10 @@ export class SelectComponent implements OnInit {
 
   get selectClassNames(): string {
     return joinClasses([!!this.selectedValue, 'select-selected'], [this.error, 'select-error']);
+  }
+
+  get iconClassNames(): string {
+    return joinClasses([this.disabled, 'select-icon-disabled'], [this.error, 'select-icon-error']);
   }
 
   ngOnInit(): void {
