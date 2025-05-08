@@ -28,7 +28,6 @@ export class AppComponent {
     { value: 'option3', label: 'Option 3' },
   ];
   selectedOption: string | null = null;
-  placeholder = 'Choose an option';
   onOptionSelected(value: string | null): void {
     this.selectedOption = value;
     console.log('Selected option in parent:', this.selectedOption);

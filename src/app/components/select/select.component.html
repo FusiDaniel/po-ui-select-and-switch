@@ -1,9 +1,9 @@
 <select
   [disabled]="disabled"
-  class="select"
+  class="select select-hide-default-caret"
   [(ngModel)]="selectedValue"
   (ngModelChange)="selectedValueChange.emit($event)"
-  [ngClass]="selectedValue && 'select-selected'"
+  [ngClass]="selectClassNames"
 >
   <option
     class="select-option select-option-placeholder"

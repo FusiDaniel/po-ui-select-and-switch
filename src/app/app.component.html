@@ -1,14 +1,24 @@
 <po-page-default p-title="PO UI">
-  <div class="po-mb-2">
+  <div class="select-wrapper">
     <app-select
       [options]="options"
       [selectedValue]="selectedOption"
       (selectedValueChange)="onOptionSelected($event)"
-      [placeholder]="placeholder"
+      [placeholder]="'Choose an option'"
     >
     </app-select>
   </div>
-  <div class="po-mb-2">
+  <div class="select-wrapper">
+    <app-select
+      [options]="options"
+      [selectedValue]="selectedOption"
+      (selectedValueChange)="onOptionSelected($event)"
+      [placeholder]="'Error Select'"
+      [error]="true"
+    >
+    </app-select>
+  </div>
+  <div class="select-wrapper">
     <app-select
       [options]="options"
       [selectedValue]="selectedOption"

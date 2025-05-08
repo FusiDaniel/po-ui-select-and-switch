@@ -17,6 +17,9 @@
 
   --color-disabled: var(--color-neutral-light-30);
   --background-disabled: var(--color-neutral-light-20);
+
+  --color-error: var(--color-feedback-negative-base);
+  --background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 256 256' fill='%234a5c60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z'%3E%3C/path%3E%3C/svg%3E");
 }
 
 .select {
@@ -31,7 +34,23 @@
   border-width: var(--border-width-sm);
   border-radius: var(--border-radius-md);
   border-style: solid;
-  min-height: 2.75rem;
+  min-height: 2.75rem; 
+
+  width: 100%;
+  
+  background-image: var(--background-image);
+  background-repeat: no-repeat;
+  background-position: right var(--padding-horizontal, .5rem) center;
+  background-size: 24px;
+}
+
+.select-hide-default-caret {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+.select-hide-default-caret::-ms-expand {
+  display: none;
 }
 
 .select:hover {
@@ -52,6 +71,11 @@
   border-color: var(--color-disabled);
   background-color: var(--background-disabled);
   cursor: not-allowed;
+}
+
+.select-error {
+  border-color: var(--color-error);
+  background-color: var(--background);
 }
 
 .select-selected {
@@ -75,6 +99,11 @@
 /* AQUI PRECISA SER UM DISABLED WITHIN OU ALGO ASSIM */
 .select-icon:disabled {
   color: var(--color-disabled);
+}
+
+/* AQUI PRECISA SER UM ERROR WITHIN OU ALGO ASSIM */
+.select-icon-error {
+  color: var(--color-error);
 }
 
 .select-option {
