@@ -1,21 +1,21 @@
 :host {
-  --font-family: var(--font-family-theme);
+  --font-family: var(--font-family-text);
   --font-size: var(--font-size-default);
   --text-color-empty: var(--color-neutral-light-30);
   --color: var(--color-neutral-dark-70);
   --background: var(--color-neutral-light-05);
-  --text-color: var(--color-neutral-dark-90);
   --padding-horizontal: 0.5rem;
   --padding-vertical: 0.7rem;
+  
+  --text-color: var(--color-neutral-dark-90);
 
-  --color-hover: var(--color-brand-01-dark);
-  /* --background-hover: var(--color-brand-01-lighter); */
+  --color-hover: var(--color-action-hover);
   --background-hover: var(--color-brand-01-lightest);
 
-  --outline-color-focused: var(--color-action-focus);
   --color-focused: var(--color-action-default);
+  --outline-color-focused: var(--color-action-focus);
 
-  --color-disabled: var(--color-neutral-light-30);
+  --color-disabled: var(--color-action-disabled);
   --background-disabled: var(--color-neutral-light-20);
 
   --color-error: var(--color-feedback-negative-base);
@@ -34,7 +34,7 @@
 .select {
   font-family: var(--font-family);
   font-size: var(--font-size);
-  color: var(--color);
+  color: var(--text-color-empty);
   border-color: var(--color);
   background-color: var(--background);
   padding: var(--padding-vertical) var(--padding-horizontal);
@@ -83,8 +83,12 @@
   color: var(--text-color);
 }
 
-.select-option-placeholder {
+.select-option:disabled {
   color: var(--color-disabled);
+}
+
+.select-option-placeholder {
+  color: var(--text-color-empty);
 }
 
 /* Icon Style */

@@ -7,11 +7,13 @@ import {
 } from '@angular/forms';
 import { SelectComponent } from '../select/select.component';
 import { CommonModule } from '@angular/common';
+import { PoFieldModule } from '@po-ui/ng-components';
+
 
 @Component({
   selector: 'app-simple-form',
   standalone: true,
-  imports: [ReactiveFormsModule, SelectComponent, CommonModule],
+  imports: [ReactiveFormsModule, SelectComponent, CommonModule, PoFieldModule],
   templateUrl: './simple-form.component.html',
   styleUrls: ['./simple-form.component.css'],
 })

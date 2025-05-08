@@ -14,6 +14,14 @@
         Fruit is required.
       </p>
     </div>
+    <po-select
+      name="select"
+      p-placeholder="Select an option"
+      [p-options]="options"
+      [p-field-error-message]="'Test error message'"
+      [p-required]="true"
+    >
+    </po-select>
   </div>
   <button type="submit" [disabled]="myForm.invalid">Submit</button>
 </form>
