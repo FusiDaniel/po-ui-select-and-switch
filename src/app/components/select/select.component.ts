@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter, forwardRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { joinClasses } from '../../utils/joinClasses';
-import { PoComponentsModule } from '@po-ui/ng-components';
 import {
   ControlValueAccessor,
   NG_VALUE_ACCESSOR
@@ -16,7 +15,7 @@ export type Option = {
 @Component({
   selector: 'app-select',
   standalone: true,
-  imports: [FormsModule, CommonModule, PoComponentsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.css'],
   providers: [
@@ -35,8 +34,8 @@ export class SelectComponent implements ControlValueAccessor {
 
   value: string | null = null;
 
-  onChange = (_: any) => {};
-  onTouched = () => {};
+  onChange: any = () => {};
+  onTouched: any = () => {};
 
   get selectClassNames(): string {
     return joinClasses([!!this.value, 'select-selected'], [this.error, 'select-error']);
@@ -58,7 +57,7 @@ export class SelectComponent implements ControlValueAccessor {
     this.onTouched = fn;
   }
   
-  setDisabledState?(isDisabled: boolean): void {
+  setDisabledState(isDisabled: boolean): void {
     this.isDisabled = isDisabled;
   }
 

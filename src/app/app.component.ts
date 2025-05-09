@@ -7,8 +7,9 @@ import {
   PoPageModule,
   PoToolbarModule,
 } from '@po-ui/ng-components';
-import { SelectComponent, Option } from './components/select/select.component';
+import { SelectComponent } from './components/select/select.component';
 import { SimpleFormComponent } from "./components/simple-form/simple-form.component";
+import { SwitchComponent } from "./components/switch/switch.component";
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,8 @@ import { SimpleFormComponent } from "./components/simple-form/simple-form.compon
     PoPageModule,
     SelectComponent,
     FormsModule,
-    SimpleFormComponent
+    SimpleFormComponent,
+    SwitchComponent
 ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],

@@ -1,0 +1,115 @@
+:host {
+  --color-unchecked: var(--color-neutral-light-00);
+  --border-color: var(--color-neutral-dark-70);
+  --track-unchecked: var(--color-neutral-light-20);
+  --color-checked: var(--color-action-default);
+  --track-checked: var(--color-brand-01-light);
+  --color-unchecked-hover: var(--color-brand-01-lightest);
+  --color-checked-hover: var(--color-action-hover);
+  --outline-color-focused: var(--color-action-focus);
+  --color-unchecked-disabled: var(--color-neutral-light-20);
+  --color-checked-disabled: var(--color-action-disabled);
+}
+
+.switch-wrapper {
+  background-color: transparent;
+  border: none;
+  position: relative;
+  height: 1.5rem;
+  display: block;
+}
+
+.switch-wrapper:hover {
+  cursor: pointer;
+}
+
+.switch-wrapper:focus {
+  outline-color: var(--outline-color-focused);
+  outline-width: var(--border-width-lg);
+  outline-style: solid;
+  outline-offset: 2px;
+}
+
+.switch-wrapper:disabled {
+  cursor: not-allowed;
+}
+
+.switch-track {
+  height: 1rem;
+  width: 3rem;
+  border-radius: 20px;
+}
+
+:not(.switch-checked) > .switch-track {
+  background-color: var(--track-unchecked);
+}
+
+.switch-checked > .switch-track {
+  background-color: var(--track-checked);
+}
+
+.switch-track-checked-disabled {
+  background-color: var(--track-unchecked);
+}
+
+/* Key Style */ 
+
+.switch-key {
+  border-width: var(--border-width-md);
+  border-radius: 100%;
+  border-style: solid;
+  height: 1.5rem;
+  width: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+}
+
+.switch-checked > .switch-key {
+  background-color: var(--color-checked);
+  border-color: transparent;
+  right: 0;
+}
+
+:not(.switch-checked) > .switch-key {
+  background-color: var(--color-unchecked);
+  border-color: var(--border-color);
+  left: 0;
+}
+
+.switch-wrapper:not(.switch-checked):hover > .switch-key {
+  background-color: var(--color-unchecked-hover);
+  border-color: var(--color-checked-hover);
+}
+
+.switch-wrapper.switch-checked:hover > .switch-key {
+  background-color: var(--color-checked-hover);
+}
+
+.switch-key-unchecked-disabled {
+  background-color: var(--color-unchecked-disabled);
+  border-color: var(--color-checked-disabled);
+}
+
+.switch-key-checked-disabled {
+  background-color: var(--color-checked-disabled);
+}
+
+/* Icon Style */
+
+
+.switch-key-icon::before {
+  font-size: 1rem;
+  display: none;
+}
+
+.switch-checked .switch-key-icon::before {
+  display: inline;
+  color: var(--color-unchecked);
+}
+
+.switch-wrapper:disabled > .switch-key-icon::before {
+  color: var(--color-unchecked-disabled);
+}
