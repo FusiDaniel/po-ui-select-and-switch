@@ -11,50 +11,23 @@
   --color-checked-disabled: var(--color-action-disabled);
 }
 
-.switch-wrapper {
+/* Base */
+.switch {
   background-color: transparent;
   border: none;
+  display: block;
+
   position: relative;
   height: 1.5rem;
-  display: block;
 }
 
-.switch-wrapper:hover {
-  cursor: pointer;
-}
-
-.switch-wrapper:focus {
-  outline-color: var(--outline-color-focused);
-  outline-width: var(--border-width-lg);
-  outline-style: solid;
-  outline-offset: 2px;
-}
-
-.switch-wrapper:disabled {
-  cursor: not-allowed;
-}
-
-.switch-track {
+.track {
   height: 1rem;
   width: 3rem;
-  border-radius: 20px;
+  border-radius: 999px
 }
 
-:not(.switch-checked) > .switch-track {
-  background-color: var(--track-unchecked);
-}
-
-.switch-checked > .switch-track {
-  background-color: var(--track-checked);
-}
-
-.switch-track-checked-disabled {
-  background-color: var(--track-unchecked);
-}
-
-/* Key Style */ 
-
-.switch-key {
+.key {
   border-width: var(--border-width-md);
   border-radius: 100%;
   border-style: solid;
@@ -67,49 +40,94 @@
   top: 0;
 }
 
-.switch-checked > .switch-key {
-  background-color: var(--color-checked);
-  border-color: transparent;
-  right: 0;
+.icon::before {
+  font-size: 1rem;
 }
 
-:not(.switch-checked) > .switch-key {
+
+/* Normal - Unchecked */
+:not(.checked) > .track {
+  background-color: var(--track-unchecked);
+}
+
+:not(.checked) > .key {
   background-color: var(--color-unchecked);
   border-color: var(--border-color);
   left: 0;
 }
 
-.switch-wrapper:not(.switch-checked):hover > .switch-key {
-  background-color: var(--color-unchecked-hover);
-  border-color: var(--color-checked-hover);
-}
-
-.switch-wrapper.switch-checked:hover > .switch-key {
-  background-color: var(--color-checked-hover);
-}
-
-.switch-key-unchecked-disabled {
-  background-color: var(--color-unchecked-disabled);
-  border-color: var(--color-checked-disabled);
-}
-
-.switch-key-checked-disabled {
-  background-color: var(--color-checked-disabled);
-}
-
-/* Icon Style */
-
-
-.switch-key-icon::before {
-  font-size: 1rem;
+:not(.checked) .icon::before {
   display: none;
 }
 
-.switch-checked .switch-key-icon::before {
+
+/* Normal - Checked */
+.checked > .track {
+  background-color: var(--track-checked);
+}
+
+.checked > .key {
+  background-color: var(--color-checked);
+  border-color: transparent;
+  right: 0;
+}
+
+.checked .icon::before {
   display: inline;
   color: var(--color-unchecked);
 }
 
-.switch-wrapper:disabled > .switch-key-icon::before {
+
+/* Hover */
+.switch:hover {
+  cursor: pointer;
+}
+
+
+/* Hover - Unchecked */
+.switch:hover:not(.checked) > .key {
+  background-color: var(--color-unchecked-hover);
+  border-color: var(--color-checked-hover);
+}
+
+
+/* Hover - Checked */
+.switch:hover.checked > .key {
+  background-color: var(--color-checked-hover);
+}
+
+
+/* Focus */
+.switch:focus {
+  outline-color: var(--outline-color-focused);
+  outline-width: var(--border-width-lg);
+  outline-style: solid;
+  outline-offset: 2px;
+}
+
+
+/* Disabled */
+.switch:disabled {
+  cursor: not-allowed;
+}
+
+.switch:disabled > .track {
+  background-color: var(--track-unchecked);
+}
+
+
+/* Disabled - Unchecked */
+.switch:disabled:not(.checked) > .key {
+  background-color: var(--color-unchecked-disabled);
+  border-color: var(--color-checked-disabled);
+}
+
+
+/* Disabled - Checked */
+.switch:disabled.checked > .key {
+  background-color: var(--color-checked-disabled);
+}
+
+.switch:disabled.checked  .icon::before {
   color: var(--color-unchecked-disabled);
 }

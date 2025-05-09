@@ -24,17 +24,17 @@ export type Option = {
     ]
 })
 export class SwitchComponent implements ControlValueAccessor {
-  @Input() isDisabled = false;
+  @Input() disabled = false;
   @Input() error = false;
 
-  value: boolean = false;
+  @Input() value: boolean = false;
 
   onChange: any = () => {};
   onTouched: any = () => {};
 
   get switchWrapperClassNames(): string {
-      return joinClasses([this.value, 'switch-checked']);
-    }
+      return this.value ? 'checked' : '';
+  }
 
   writeValue(value: boolean): void {
     this.value = value;
@@ -48,8 +48,8 @@ export class SwitchComponent implements ControlValueAccessor {
     this.onTouched = fn;
   }
 
-  setDisabledState(isDisabled: boolean): void {
-    this.isDisabled = isDisabled;
+  setDisabledState(disabled: boolean): void {
+    this.disabled = disabled;
   }
 
   toggle() {
@@ -57,28 +57,3 @@ export class SwitchComponent implements ControlValueAccessor {
   }
 
 }
-
-// @Input() options: Option[] = [];
-// @Input() selectedValue: string | null = null;
-// @Input() placeholder?: string;
-// @Input() disabled = false;
-// @Input() error = false;
-// @Output() selectedValueChange = new EventEmitter<string | null>();
-
-// get selectClassNames(): string {
-//   return joinClasses([!!this.selectedValue, 'select-selected'], [this.error, 'select-error']);
-// }
-
-// get iconClassNames(): string {
-//   return joinClasses([this.disabled, 'select-icon-disabled'], [this.error, 'select-icon-error']);
-// }
-
-// ngOnInit(): void {
-//   if (this.selectedValue === null && this.options.length > 0) {
-//     this.selectedValueChange.emit(null);
-//   }
-// }
-
-// onChange(event: Event): void {
-//   const selectedValue = (event.target as HTMLSelectElement).value;
-//   this.selectedValue = selectedValue;

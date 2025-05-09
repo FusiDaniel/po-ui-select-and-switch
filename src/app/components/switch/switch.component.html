@@ -4,11 +4,13 @@
     [attr.aria-checked]="value"
     (click)="toggle()"
     [ngClass]="switchWrapperClassNames"
-    class="switch-wrapper"
+    class="switch"
+    [disabled]="disabled"
+    (mousedown)="$event.preventDefault()"
     >
-    <div class="switch-track">  
+    <div class="track">  
     </div>
-    <div class="switch-key">
-      <i class="an an-check switch-key-icon"></i>    
+    <div class="key">
+      <i class="an an-check icon"></i>    
     </div>
-  </button>
+</button>
