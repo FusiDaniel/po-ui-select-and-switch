@@ -1,31 +1,26 @@
-<div class="select-wrapper">
+<div class="select-container" [ngClass]="selectClassNames">
   <select
     [ngModel]="value"
     (ngModelChange)="onValueChange($event)"
     [disabled]="isDisabled"
     (blur)="onTouched()"
-    class="select select-hide-default-caret"
-    [ngClass]="selectClassNames"
+    class="select"
   >
     <option
-      class="select-option select-option-placeholder"
-      disabled
+      class="select-dropdown-option"
+      [disabled]="true"
       [value]="null"
       *ngIf="placeholder"
     >
       {{ placeholder }}
     </option>
     <option
-      class="select-option"
+      class="select-dropdown-option"
       *ngFor="let option of options"
       [value]="option.value"
     >
       {{ option.label }}
     </option>
   </select>
-  <i 
-    class="an an-caret-down select-icon"
-    [ngClass]="iconClassNames"
-  >
-  </i>
+  <i class="an an-caret-down select-icon"></i>
 </div>

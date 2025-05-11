@@ -41,10 +41,6 @@ export class SelectComponent implements ControlValueAccessor {
     return joinClasses([!!this.value, 'select-selected'], [this.error, 'select-error']);
   }
 
-  get iconClassNames(): string {
-    return joinClasses([this.isDisabled, 'select-icon-disabled'], [this.error, 'select-icon-error']);
-  }
-
   writeValue(value: string | null): void {
     this.value = value;
   }

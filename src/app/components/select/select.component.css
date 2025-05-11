@@ -21,15 +21,12 @@
   --color-error: var(--color-feedback-negative-base);
 }
 
-/* Wrapper Style */
-
-.select-wrapper {
+/* Normal */
+.select-container {
   position: relative;
   display: inline-block;
   width: 100%;
 }
-
-/* Select Style */
 
 .select {
   font-family: var(--font-family);
@@ -46,59 +43,12 @@
   min-height: 2.75rem; 
 
   width: 100%;
-}
-
-.select:hover {
-  border-color: var(--color-hover);
-  background-color: var(--background-hover);
-  cursor: pointer;
-}
-
-.select:focus {
-  border-color: var(--color-focused);
-  outline-color: var(--outline-color-focused);
-  outline-width: var(--border-width-lg);
-  outline-style: solid;
-  outline-offset: 2px;
-}
-
-.select:disabled {
-  border-color: var(--color-disabled);
-  background-color: var(--background-disabled);
-  cursor: not-allowed;
-}
-
-.select-error {
-  border-color: var(--color-error);
-  background-color: var(--background);
-}
-
-.select-selected {
-  color: var(--text-color);
-}
-
-/* Option Style */
-
-.select-option {
-  color: var(--text-color);
-}
-
-.select-option:disabled {
-  color: var(--color-disabled);
-}
-
-.select-option-placeholder {
-  color: var(--text-color-empty);
-}
-
-/* Icon Style */
-
-.select-hide-default-caret {
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
 }
-.select-hide-default-caret::-ms-expand {
+
+.select::-ms-expand {
   display: none;
 }
 
@@ -114,19 +64,65 @@
   font-size: 24px
 }
 
-.select-wrapper:hover > .select-icon:not(.select-icon-disabled)::before {
+.select-dropdown-option {
+  color: var(--text-color);
+}
+
+
+/* Selected */
+
+.select-selected > .select {
+  color: var(--text-color);
+}
+
+
+/* Hover */
+.select-container:hover > .select:not(:disabled) {
+  border-color: var(--color-hover);
+  background-color: var(--background-hover);
+  cursor: pointer;
+}
+
+.select-container:hover .select:not(:disabled) + .select-icon::before {
   color: var(--color-hover);
 }
 
-.select-wrapper:focus-within > .select-icon:not(.select-icon-disabled)::before {
+
+/* Focus */
+.select-container:focus-within .select {
+  border-color: var(--color-focused);
+  outline-color: var(--outline-color-focused);
+  outline-width: var(--border-width-lg);
+  outline-style: solid;
+  outline-offset: 2px;
+}
+
+.select-container:focus-within .select:not(:disabled) + .select-icon::before {
   color: var(--color-focused);
 }
 
-.select-icon-disabled::before {
+
+/* Disabled */
+.select:disabled {
+  border-color: var(--color-disabled);
+  background-color: var(--background-disabled);
+  cursor: not-allowed;
+}
+
+.select-dropdown-option:disabled {
+  color: var(--text-color-empty);
+}
+
+.select:disabled > .select-icon::before {
   color: var(--color-disabled);
 }
 
-.select-icon-error::before {
-  color: var(--color-error);
+/* Error */
+.select-error > .select {
+  border-color: var(--color-error);
+  background-color: var(--background);
 }
 
+.select-error > .select-icon::before {
+  color: var(--color-error);
+}
