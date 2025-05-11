@@ -1,18 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, forwardRef, Input, OnInit } from '@angular/core';
-import { PoComponentsModule } from '@po-ui/ng-components';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { joinClasses } from '../../utils/joinClasses';
-
-export type Option = {
-  value: string;
-  label: string;
-};
+import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-switch',
   standalone: true,
-  imports: [CommonModule, PoComponentsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './switch.component.html',
   styleUrls: ['./switch.component.css'],
   providers: [
@@ -21,18 +14,17 @@ export type Option = {
     useExisting: forwardRef(() => SwitchComponent),
     multi: true
     }
-    ]
+  ]
 })
 export class SwitchComponent implements ControlValueAccessor {
   @Input() disabled = false;
-  @Input() error = false;
 
-  @Input() value: boolean = false;
+  value: boolean = false;
 
   onChange: any = () => {};
   onTouched: any = () => {};
 
-  get switchWrapperClassNames(): string {
+  get switchClassNames(): string {
       return this.value ? 'checked' : '';
   }
 
@@ -53,7 +45,10 @@ export class SwitchComponent implements ControlValueAccessor {
   }
 
   toggle() {
-    this.value = !this.value;
+    const newValue = !this.value;
+    this.value = newValue;
+    this.onChange(newValue);
+    this.onTouched();
   }
 
 }

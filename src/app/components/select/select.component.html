@@ -2,7 +2,7 @@
   <select
     [ngModel]="value"
     (ngModelChange)="onValueChange($event)"
-    [disabled]="isDisabled"
+    [disabled]="disabled"
     (blur)="onTouched()"
     class="select"
   >

@@ -15,7 +15,7 @@ export type Option = {
 @Component({
   selector: 'app-select',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.css'],
   providers: [
@@ -29,7 +29,7 @@ export type Option = {
 export class SelectComponent implements ControlValueAccessor {
   @Input() options: Option[] = [];
   @Input() placeholder?: string;
-  @Input() isDisabled = false;
+  @Input() disabled = false;
   @Input() error = false;
 
   value: string | null = null;
@@ -54,7 +54,7 @@ export class SelectComponent implements ControlValueAccessor {
   }
   
   setDisabledState(isDisabled: boolean): void {
-    this.isDisabled = isDisabled;
+    this.disabled = isDisabled;
   }
 
   onValueChange(value: string): void {

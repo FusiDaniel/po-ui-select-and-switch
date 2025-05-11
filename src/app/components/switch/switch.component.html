@@ -3,10 +3,11 @@
     type="button"
     [attr.aria-checked]="value"
     (click)="toggle()"
-    [ngClass]="switchWrapperClassNames"
+    [ngClass]="switchClassNames"
     class="switch"
     [disabled]="disabled"
     (mousedown)="$event.preventDefault()"
+    (blur)="onTouched()"
     >
     <div class="switch-track">  
     </div>

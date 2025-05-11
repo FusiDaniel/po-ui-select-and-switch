@@ -30,3 +30,7 @@ button:disabled {
 .error {
   color: red;
 }
+
+.switch-container {
+  margin: 20px 0;
+}
