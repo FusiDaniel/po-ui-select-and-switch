@@ -21,13 +21,13 @@
   height: 1.5rem;
 }
 
-.track {
+.switch-track {
   height: 1rem;
   width: 3rem;
   border-radius: 999px
 }
 
-.key {
+.switch-key {
   border-width: var(--border-width-md);
   border-radius: 100%;
   border-style: solid;
@@ -40,39 +40,39 @@
   top: 0;
 }
 
-.icon::before {
+.switch-icon::before {
   font-size: 1rem;
 }
 
 
 /* Normal - Unchecked */
-:not(.checked) > .track {
+:not(.checked) > .switch-track {
   background-color: var(--track-unchecked);
 }
 
-:not(.checked) > .key {
+:not(.checked) > .switch-key {
   background-color: var(--color-unchecked);
   border-color: var(--border-color);
   left: 0;
 }
 
-:not(.checked) .icon::before {
+:not(.checked) .switch-icon::before {
   display: none;
 }
 
 
 /* Normal - Checked */
-.checked > .track {
+.checked > .switch-track {
   background-color: var(--track-checked);
 }
 
-.checked > .key {
+.checked > .switch-key {
   background-color: var(--color-checked);
   border-color: transparent;
   right: 0;
 }
 
-.checked .icon::before {
+.checked .switch-icon::before {
   display: inline;
   color: var(--color-unchecked);
 }
@@ -85,14 +85,14 @@
 
 
 /* Hover - Unchecked */
-.switch:hover:not(.checked) > .key {
+.switch:hover:not(.checked) > .switch-key {
   background-color: var(--color-unchecked-hover);
   border-color: var(--color-checked-hover);
 }
 
 
 /* Hover - Checked */
-.switch:hover.checked > .key {
+.switch:hover.checked > .switch-key {
   background-color: var(--color-checked-hover);
 }
 
@@ -111,23 +111,23 @@
   cursor: not-allowed;
 }
 
-.switch:disabled > .track {
+.switch:disabled > .switch-track {
   background-color: var(--track-unchecked);
 }
 
 
 /* Disabled - Unchecked */
-.switch:disabled:not(.checked) > .key {
+.switch:disabled:not(.checked) > .switch-key {
   background-color: var(--color-unchecked-disabled);
   border-color: var(--color-checked-disabled);
 }
 
 
 /* Disabled - Checked */
-.switch:disabled.checked > .key {
+.switch:disabled.checked > .switch-key {
   background-color: var(--color-checked-disabled);
 }
 
-.switch:disabled.checked  .icon::before {
+.switch:disabled.checked  .switch-icon::before {
   color: var(--color-unchecked-disabled);
 }
