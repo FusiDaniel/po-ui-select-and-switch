@@ -1,11 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, Output, EventEmitter, forwardRef } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, forwardRef, Input } from '@angular/core';
+import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { joinClasses } from '../../utils/joinClasses';
-import {
-  ControlValueAccessor,
-  NG_VALUE_ACCESSOR
-} from '@angular/forms';
 
 export type Option = {
   value: string;
@@ -22,9 +18,9 @@ export type Option = {
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => SelectComponent),
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class SelectComponent implements ControlValueAccessor {
   @Input() options: Option[] = [];
@@ -38,7 +34,10 @@ export class SelectComponent implements ControlValueAccessor {
   onTouched: any = () => {};
 
   get selectClassNames(): string {
-    return joinClasses([!!this.value, 'select-selected'], [this.error, 'select-error']);
+    return joinClasses(
+      [!!this.value, 'select-selected'],
+      [this.error, 'select-error']
+    );
   }
 
   writeValue(value: string | null): void {
@@ -52,7 +51,7 @@ export class SelectComponent implements ControlValueAccessor {
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
-  
+
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }

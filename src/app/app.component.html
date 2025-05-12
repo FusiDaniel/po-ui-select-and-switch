@@ -1,40 +1,67 @@
 <po-page-default p-title="PO UI">
-  <div class="select-wrapper">
-    <app-select
-      [(ngModel)]="selectedOption"
-      [options]="options"
-      [placeholder]="'Choose an option'"
-    >
-    </app-select>
+  <div class="po-row">
+    <div class="po-xs-6 column">
+      <po-divider p-label="Select"></po-divider>
+      <div class="item-wrapper">
+        <p>Default</p>
+        <app-select
+          [(ngModel)]="selectedOption"
+          [options]="options"
+          [placeholder]="'Choose an option'"
+        >
+        </app-select>
+      </div>
+      <div class="item-wrapper">
+        <p>Disabled</p>
+        <app-select
+          [(ngModel)]="selectedOption"
+          [options]="options"
+          [placeholder]="'Disabled Select'"
+          [disabled]="true"
+        >
+        </app-select>
+      </div>
+      <div class="item-wrapper">
+        <p>With Error</p>
+        <app-select
+          [(ngModel)]="selectedOption"
+          [options]="options"
+          [placeholder]="'Error Select'"
+          [error]="true"
+        >
+        </app-select>
+      </div>
+      <div class="item-wrapper">
+        <p>Without Placeholder</p>
+        <app-select [(ngModel)]="selectedOption" [options]="options">
+        </app-select>
+      </div>
+      <div class="item-wrapper">
+        <p>With Default Value</p>
+        <app-select [(ngModel)]="selectedOption2" [options]="options">
+        </app-select>
+      </div>
+    </div>
+    <div class="po-xs-6 column">
+      <po-divider p-label="Switch"></po-divider>
+      <div class="item-wrapper">
+        <p>Default</p>
+        <div class="switch-with-label">
+          <app-switch [(ngModel)]="switchValue" />
+          <p>{{ switchValue }}</p>
+        </div>
+      </div>
+      <div class="item-wrapper">
+        <p>Disabled</p>
+        <div class="switch-with-label">
+          <app-switch [(ngModel)]="switchValue" [disabled]="true" />
+          <p>{{ switchValue }}</p>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="select-wrapper">
-    <app-select
-      [(ngModel)]="selectedOption"
-      [options]="options"
-      [placeholder]="'Disabled Select'"
-      [disabled]="true"
-    >
-    </app-select>
-  </div>
-  <div class="select-wrapper">
-    <app-select
-      [(ngModel)]="selectedOption"
-      [options]="options"
-      [placeholder]="'Error Select'"
-      [error]="true"
-    >
-    </app-select>
-  </div>
-  <div class="select-wrapper">
-    <app-switch />
-  </div>
-  <div class="select-wrapper">
-    <app-switch [disabled]="true"/>
-  </div>
-  <div class="select-wrapper">
-    <app-switch [disabled]="true"/>
-  </div>
-  <div class="select-wrapper">
+  <po-divider p-label="Use in a form"></po-divider>
+  <div class="form">
     <app-simple-form />
   </div>
 </po-page-default>

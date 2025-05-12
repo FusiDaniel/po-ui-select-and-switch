@@ -5,16 +5,16 @@ form {
 }
 
 div {
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
 label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 0.5rem;
 }
 
 button {
-  padding: 10px;
+  padding: 1rem;
   background-color: green;
   color: white;
   border: none;
@@ -32,5 +32,10 @@ button:disabled {
 }
 
 .switch-container {
-  margin: 20px 0;
+  margin: 2rem 0;
+  display: flex;
+}
+
+.switch-container p {
+  margin-left: 1rem;
 }

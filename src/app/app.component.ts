@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { PoDividerModule } from '@po-ui/ng-components';
 
 import {
   PoMenuModule,
@@ -8,8 +9,8 @@ import {
   PoToolbarModule,
 } from '@po-ui/ng-components';
 import { SelectComponent } from './components/select/select.component';
-import { SimpleFormComponent } from "./components/simple-form/simple-form.component";
-import { SwitchComponent } from "./components/switch/switch.component";
+import { SimpleFormComponent } from './components/simple-form/simple-form.component';
+import { SwitchComponent } from './components/switch/switch.component';
 
 @Component({
   selector: 'app-root',
@@ -21,8 +22,9 @@ import { SwitchComponent } from "./components/switch/switch.component";
     SelectComponent,
     FormsModule,
     SimpleFormComponent,
-    SwitchComponent
-],
+    SwitchComponent,
+    PoDividerModule,
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
@@ -33,8 +35,10 @@ export class AppComponent {
     { value: 'option3', label: 'Option 3' },
   ];
   selectedOption: string | null = null;
+  selectedOption2: string | null = 'option2';
   onOptionSelected(value: string | null): void {
     this.selectedOption = value;
     console.log('Selected option in parent:', this.selectedOption);
   }
+  switchValue = true;
 }

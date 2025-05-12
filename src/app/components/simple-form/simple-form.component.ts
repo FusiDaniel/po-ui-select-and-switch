@@ -7,13 +7,17 @@ import {
 } from '@angular/forms';
 import { SelectComponent } from '../select/select.component';
 import { CommonModule } from '@angular/common';
-import { SwitchComponent } from "../switch/switch.component";
-
+import { SwitchComponent } from '../switch/switch.component';
 
 @Component({
   selector: 'app-simple-form',
   standalone: true,
-  imports: [ReactiveFormsModule, SelectComponent, CommonModule, SwitchComponent],
+  imports: [
+    ReactiveFormsModule,
+    SelectComponent,
+    CommonModule,
+    SwitchComponent,
+  ],
   templateUrl: './simple-form.component.html',
   styleUrls: ['./simple-form.component.css'],
 })
