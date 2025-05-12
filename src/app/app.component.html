@@ -17,7 +17,7 @@
         <app-select
           [(ngModel)]="selectedOption"
           [options]="options"
-          [placeholder]="'Disabled Select'"
+          [placeholder]="'Disabled'"
           [disabled]="true"
           labelId="select-disabled-label"
         >
@@ -28,7 +28,7 @@
         <app-select
           [(ngModel)]="selectedOption"
           [options]="options"
-          [placeholder]="'Error Select'"
+          [placeholder]="'With Error'"
           [error]="true"
           labelId="select-with-error-label"
         >
@@ -41,7 +41,7 @@
       </div>
       <div class="item-wrapper">
         <label id="select-with-default-value-label" for="select-with-default-value">With Default Value</label>
-        <app-select [(ngModel)]="selectedOption2" [options]="options" labelId="select-with-default-value-label">
+        <app-select [(ngModel)]="selectedOption2" [options]="options" labelId="select-with-default-value-label" placeholder="With Default Value">
         </app-select>
       </div>
     </div>
