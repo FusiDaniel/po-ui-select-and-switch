@@ -5,6 +5,7 @@
     [disabled]="disabled"
     (blur)="onTouched()"
     class="select"
+    [attr.aria-labelledby]="labelId"
   >
     <option
       class="select-dropdown-option"

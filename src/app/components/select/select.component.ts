@@ -27,6 +27,7 @@ export class SelectComponent implements ControlValueAccessor {
   @Input() placeholder?: string;
   @Input() disabled = false;
   @Input() error = false;
+  @Input() labelId: string | undefined;
 
   value: string | null = null;
 

@@ -3,42 +3,45 @@
     <div class="po-xs-6 column">
       <po-divider p-label="Select"></po-divider>
       <div class="item-wrapper">
-        <p>Default</p>
+        <label id="select-default-label" for="select-default">Default</label>
         <app-select
           [(ngModel)]="selectedOption"
           [options]="options"
           [placeholder]="'Choose an option'"
+          labelId="select-default-label"
         >
         </app-select>
       </div>
       <div class="item-wrapper">
-        <p>Disabled</p>
+        <label id="select-disabled-label" for="select-disabled">Disabled</label>
         <app-select
           [(ngModel)]="selectedOption"
           [options]="options"
           [placeholder]="'Disabled Select'"
           [disabled]="true"
+          labelId="select-disabled-label"
         >
         </app-select>
       </div>
       <div class="item-wrapper">
-        <p>With Error</p>
+        <label id="select-with-error-label" for="select-with-error">With Error</label>
         <app-select
           [(ngModel)]="selectedOption"
           [options]="options"
           [placeholder]="'Error Select'"
           [error]="true"
+          labelId="select-with-error-label"
         >
         </app-select>
       </div>
       <div class="item-wrapper">
-        <p>Without Placeholder</p>
-        <app-select [(ngModel)]="selectedOption" [options]="options">
+        <label id="select-without-placeholder-label" for="select-without-placeholder">Without Placeholder</label>
+        <app-select [(ngModel)]="selectedOption" [options]="options" labelId="select-without-placeholder-label">
         </app-select>
       </div>
       <div class="item-wrapper">
-        <p>With Default Value</p>
-        <app-select [(ngModel)]="selectedOption2" [options]="options">
+        <label id="select-with-default-value-label" for="select-with-default-value">With Default Value</label>
+        <app-select [(ngModel)]="selectedOption2" [options]="options" labelId="select-with-default-value-label">
         </app-select>
       </div>
     </div>
