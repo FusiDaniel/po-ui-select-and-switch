@@ -21,8 +21,11 @@
       </p>
     </div>
     <div class="switch-container">
-      <app-switch formControlName="switch"></app-switch>
-      <p>{{ myForm.get('switch')?.value }}</p>
+      <label id="switch-label" for="switch">Flip the switch:</label>
+      <div>
+        <app-switch formControlName="switch" id="switch" labelId="switch-label"></app-switch>
+        <p>{{ myForm.get('switch')?.value }}</p>
+      </div>
     </div>
   </div>
   <button type="submit" [disabled]="myForm.invalid">Submit</button>

@@ -33,9 +33,12 @@ button:disabled {
 
 .switch-container {
   margin: 2rem 0;
-  display: flex;
 }
 
 .switch-container p {
   margin-left: 1rem;
+}
+
+.switch-container div {
+  display: flex;
 }

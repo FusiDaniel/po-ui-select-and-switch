@@ -18,6 +18,9 @@ import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/f
 })
 export class SwitchComponent implements ControlValueAccessor {
   @Input() disabled = false;
+  @Input() labelId: string | undefined;
+  @Input() label: string | undefined;
+  @Input() id: string | undefined;
 
   value: boolean = false;
 

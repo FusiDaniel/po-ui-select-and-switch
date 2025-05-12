@@ -45,16 +45,23 @@
     <div class="po-xs-6 column">
       <po-divider p-label="Switch"></po-divider>
       <div class="item-wrapper">
-        <p>Default</p>
+        <label id="switch-default-label" for="switch-default">Default</label>
         <div class="switch-with-label">
-          <app-switch [(ngModel)]="switchValue" />
+          <app-switch [(ngModel)]="switchValue" id="switch-default" labelId="switch-default-label"  />
           <p>{{ switchValue }}</p>
         </div>
       </div>
       <div class="item-wrapper">
-        <p>Disabled</p>
+        <label id="switch-disabled-label" for="switch-disabled">Disabled</label>
         <div class="switch-with-label">
-          <app-switch [(ngModel)]="switchValue" [disabled]="true" />
+          <app-switch [(ngModel)]="switchValue" [disabled]="true" id="switch-disabled" labelId="switch-disabled-label"/>
+          <p>{{ switchValue }}</p>
+        </div>
+      </div>
+      <div class="item-wrapper">
+        <label>With aria label</label>
+        <div class="switch-with-label">
+          <app-switch [(ngModel)]="switchValue" label="With aria label"/>
           <p>{{ switchValue }}</p>
         </div>
       </div>
